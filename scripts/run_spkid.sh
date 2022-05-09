@@ -16,7 +16,8 @@ lists=lists
 w=work
 name_exp=one
 db=spk_8mu/speecon
-
+db_test=spk_8mu/sr_test
+world=users
 # ------------------------
 # Usage
 # ------------------------
@@ -86,9 +87,34 @@ fi
 # - Select (or change) different features, options, etc. Make you best choice and try several options.
 
 compute_lp() {
+   $db=1
+   shift
+   lists=$*
     for filename in $(sort $lists/class/all.train $lists/class/all.test); do
         mkdir -p `dirname $w/$FEAT/$filename.$FEAT`
         EXEC="wav2lp 8 $db/$filename.wav $w/$FEAT/$filename.$FEAT"
+        echo $EXEC && $EXEC || exit 1
+    done
+}
+
+compute_lpcc() {
+    $db=1
+    shift
+    lists=$*
+    for filename in $(sort $lists/class/all.train $lists/class/all.test); do
+        mkdir -p `dirname $w/$FEAT/$filename.$FEAT`
+        EXEC="wav2lpcc 8 13 $db/$filename.wav $w/$FEAT/$filename.$FEAT"
+        echo $EXEC && $EXEC || exit 1
+    done
+}
+
+compute_mfcc() {
+    $db=1
+    shift
+    lists=$*
+    for filename in $(sort $lists/class/all.train $lists/class/all.test); do
+        mkdir -p `dirname $w/$FEAT/$filename.$FEAT`
+        EXEC="wav2mfcc 16 30 $db/$filename.wav $w/$FEAT/$filename.$FEAT"
         echo $EXEC && $EXEC || exit 1
     done
 }
