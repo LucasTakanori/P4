@@ -31,8 +31,8 @@ float verify(const GMM &gmm_candidate, const fmatrix &dat) {
     The decision is based on the returned value
    */
 
-  float score = 0.0F;
-  return score;
+  
+  return gmm_candidate.logprob(dat);;
 }
 
 
