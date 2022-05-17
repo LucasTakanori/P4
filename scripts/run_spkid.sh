@@ -102,9 +102,7 @@ compute_lpcc() {
 }
 
 compute_mfcc() {
-    $db=1
-    shift
-    lists=$*
+
     for filename in $(sort $lists/class/all.train $lists/class/all.test); do
         mkdir -p `dirname $w/$FEAT/$filename.$FEAT`
         EXEC="wav2mfcc 16 30 $db/$filename.wav $w/$FEAT/$filename.$FEAT"
