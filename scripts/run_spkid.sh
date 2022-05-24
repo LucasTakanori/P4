@@ -17,10 +17,10 @@ w=work
 name_exp=one
 db_devel=spk_8mu/speecon
 db_final=spk_8mu/sr_test
-world=users
+world=others
 
-WORLD_OPTS="-T 0.001 -N5 -m 2"
-TRAIN_OPTS="-T 0.001 -N5 -m 2"
+WORLD_OPTS="-T 1.e-6 -N26 -m 5"
+TRAIN_OPTS="-T 1.e-6 -N26 -m 5"
 
 #-0.5%ERROR
 #<5COSTE
@@ -105,7 +105,7 @@ compute_lpcc() {
     shift
     for filename in $(sort $*); do
         mkdir -p `dirname $w/$FEAT/$filename.$FEAT`
-        EXEC="wav2lpcc 8 13 $db/$filename.wav $w/$FEAT/$filename.$FEAT"
+        EXEC="wav2lpcc 20 15 $db/$filename.wav $w/$FEAT/$filename.$FEAT"
         echo $EXEC && $EXEC || exit 1
     done
 }
@@ -183,7 +183,7 @@ for cmd in $*; do
 	   #   For instance:
 	   #   * <code> gmm_verify ... > $w/verif_${FEAT}_${name_exp}.log </code>
 	   #   * <code> gmm_verify ... | tee $w/verif_${FEAT}_${name_exp}.log </code>
-       gmm_verify -d $w/$FEAT -e $FEAT -D $w/gmm/$FEAT -E $world lists/gmm.list lists/verif/all.test lists/verif/all.test.candidates | tee $w/verif_${FEAT}_${name_exp}.log
+       gmm_verify -d $w/$FEAT -e $FEAT -D $w/gmm/$FEAT -E gmm -w $world lists/gmm.list lists/verif/all.test lists/verif/all.test.candidates | tee $w/verif_${FEAT}_${name_exp}.log
 
    elif [[ $cmd == verifyerr ]]; then
        if [[ ! -s $w/verif_${FEAT}_${name_exp}.log ]] ; then
