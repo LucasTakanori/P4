@@ -7,6 +7,7 @@
 
 ## @file
 # \TODO
+# \DONE
 # Set the proper value to variables: lists, w, name_exp and db
 # - lists:    directory with the list of signal files
 # - w:        a working direc   tory for temporary files
@@ -17,10 +18,10 @@ w=work
 name_exp=one
 db_devel=spk_8mu/speecon
 db_final=spk_8mu/sr_test
-world=others
+world=users
 
-WORLD_OPTS="-T 1.e-6 -N26 -m 5"
-TRAIN_OPTS="-T 1.e-6 -N26 -m 5"
+WORLD_OPTS="-T 1.e-6 -N32 -m 64"
+TRAIN_OPTS="-T 1.e-6 -N32 -m 64"
 
 #-0.5%ERROR
 #<5COSTE
@@ -107,7 +108,7 @@ compute_lpcc() {
     shift
     for filename in $(sort $*); do
         mkdir -p `dirname $w/$FEAT/$filename.$FEAT`
-        EXEC="wav2lpcc 30 20 $db/$filename.wav $w/$FEAT/$filename.$FEAT"
+        EXEC="wav2lpcc 20 30 $db/$filename.wav $w/$FEAT/$filename.$FEAT"
         echo $EXEC && $EXEC || exit 1
     done
 }
@@ -216,7 +217,7 @@ for cmd in $*; do
        compute_$FEAT $db_final $lists/final/verif.test
        gmm_verify -d $w/$FEAT -e $FEAT -D $w/gmm/$FEAT -E $world lists/final/verif.users lists/final/all.test lists/verif/verif.test.candidates | tee $w/verif_test.log
        perl -ane 'print "$F[0]\t$F[1]\t";
-        if ($F[2] > 6.05766314) {print "1\n"}
+        if ($F[2] > 0.438652257504481) {print "1\n"}
         else {print "0\n"}' $w/verif_test.log | tee verif_test.log 
 
    
