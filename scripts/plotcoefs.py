@@ -29,4 +29,4 @@ for i in range(3):
     axs[i].set_xlabel("2nd coefficient")
     axs[i].legend(loc='upper right', prop={'size': 6})
 
-plt.show()
+plt.savefig("graph.png")
