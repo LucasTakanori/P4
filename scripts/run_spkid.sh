@@ -20,8 +20,8 @@ db_devel=spk_8mu/speecon
 db_final=spk_8mu/sr_test
 world=users
 
-WORLD_OPTS="-T 1.e-6 -N32 -m 64"
-TRAIN_OPTS="-T 1.e-6 -N32 -m 64"
+WORLD_OPTS="-T 1.e-6 -N 64 -m 32"
+TRAIN_OPTS="-T 1.e-6 -N 32 -m 64"
 
 #-0.5%ERROR
 #<5COSTE
