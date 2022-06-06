@@ -144,7 +144,7 @@ Complete el código necesario para entrenar modelos GMM.
   |------------------------|:----:|
   | ![](GMMSES120LOCSES140lpcc.png)|![](GMMSES140LOCSES140lpcc.png)|
   
-  **LP:** 
+  **MFCC:** 
   |![](GMMSES120LOCSES120mfcc.png)|![](GMMSES140LOCSES120mfcc.png)|
   |------------------------|:----:|
   | ![](GMMSES120LOCSES140mfcc.png)|![](GMMSES140LOCSES140mfcc.png)|
