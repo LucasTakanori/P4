@@ -148,6 +148,10 @@ Complete el código necesario para entrenar modelos GMM.
   |![](GMMSES120LOCSES120mfcc.png)|![](GMMSES140LOCSES120mfcc.png)|
   |------------------------|:----:|
   | ![](GMMSES120LOCSES140mfcc.png)|![](GMMSES140LOCSES140mfcc.png)|
+  
+  los coeficientes LP como visto previamente, se dispersan de una manera algo lineal, lo cual causa que el modelado creado con la mezcla de gaussianas tenga una forma plana.
+  en LPCC, se ve como incluso la orientación general de la GMM difiere en cada locutor, así como los contornos donde hay más concentración de muestras, con lo que podemos deducir que tendrá mayor facilidad para distinguir locutores.
+
 
 ### Reconocimiento del locutor.
 
