@@ -65,15 +65,16 @@ Para el numero de filas, convertimos la señal parametrizada a texto con ``$X2X`
   (LPCC) en su fichero <code>scripts/wav2lpcc.sh</code>:
   
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
-
+sox $inputfile -t raw -e signed -b 16 - | $X2X +sf | $FRAME -l 240 -p 80 | $WINDOW -l 240 -L 240 |
+	$LPC -l 240 -m $lpc_order |$LPCC -m $lpc_order -M $lpcc_order > $base.lp   
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 
 - Escriba el *pipeline* principal usado para calcular los coeficientes cepstrales en escala Mel (MFCC) en su
   fichero <code>scripts/wav2mfcc.sh</code>:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
-
+sox $inputfile -t raw -e signed -b 16 - | $X2X +sf | $FRAME -l 240 -p 80 | $WINDOW -l 240 -L 240 |
+	$MFCC -l 240 -s 8 -w 0 -m $mfcc_order -n $mel_filter_bank_order > $base.mfcc
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ### Extracción de características.
@@ -82,7 +83,7 @@ Para el numero de filas, convertimos la señal parametrizada a texto con ``$X2X`
   para todas las señales de un locutor.
   
      <p align="center">
-   <img src="img/graph.png" width="540" align="center">
+   <img src="graph.png" width="540" align="center">
    </p>
   
   + Indique **todas** las órdenes necesarias para obtener las gráficas a partir de las señales 
