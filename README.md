@@ -164,7 +164,7 @@ Complete el código necesario para realizar reconociminto del locutor y optimice
   con LPCC.
   
   **Error raro :** 
-  ![](raro.png)
+  ![](raro.png) <img src="ezgif-3-63fde0d6b6.gif" width="40" height="100" />
   
   |                        | LP   | LPCC | MFCC |
   |------------------------|:----:|:----:|:----:|
