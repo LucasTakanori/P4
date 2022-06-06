@@ -159,6 +159,12 @@ Complete el código necesario para realizar reconociminto del locutor y optimice
 
 - Inserte una tabla con la tasa de error obtenida en el reconocimiento de los locutores de la base de datos
   SPEECON usando su mejor sistema de reconocimiento para los parámetros LP, LPCC y MFCC.
+  Teniendo unos valores de &rho buenos con MFCC no nos esperabamos este resultado, a la hora de hacer test 
+  veiamos valores muy raros en la ejecución que no hemos podido arreglar por ello hemos seguido adelante 
+  con LPCC.
+  
+  **Error raro :** 
+  ![](raro.png)
   
   |                        | LP   | LPCC | MFCC |
   |------------------------|:----:|:----:|:----:|
