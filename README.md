@@ -135,10 +135,9 @@ Complete el código necesario para entrenar modelos GMM.
   del modelado GMM para diferenciar las señales de uno y otro.
   
     **LP:** 
-  <p align="center">
-
-  <img src="GMM:SES120LOC:SES120.png" width="540" align="center">
-  </p>
+  |![](GMMSES120LOCSES120.png)|![](GMMSES120LOCSES120.png)|
+  |------------------------|:----:|
+  | ![](GMMSES120LOCSES120.png)|![](GMMSES120LOCSES120.png)|
 
 ### Reconocimiento del locutor.
 
