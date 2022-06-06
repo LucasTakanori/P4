@@ -204,7 +204,7 @@ for cmd in $*; do
 	   # The list of users is the same as for the classification task. The list of files to be
 	   # recognized is lists/final/class.test
        compute_$FEAT $db_final $lists/final/class.test
-       (gmm_classify -d $w/$FEAT -e $FEAT -D $w/gmm/$FEAT -E gmm $lists/gmm.list  $lists/final/class.test | tee $w/class_test.log) || exit 1
+       (gmm_classify -d $w/$FEAT -e $FEAT -D $w/gmm/$FEAT -E gmm $lists/gmm.list  $lists/final/class.test | tee class_test.log) || exit 1
 
    
    elif [[ $cmd == finalverif ]]; then
@@ -215,9 +215,9 @@ for cmd in $*; do
 	   # is lists/final/verif.test, and the list of users claimed by the test files is
 	   # lists/final/verif.test.candidates
        compute_$FEAT $db_final $lists/final/verif.test
-       gmm_verify -d $w/$FEAT -e $FEAT -D $w/gmm/$FEAT -E $world lists/final/verif.users lists/final/all.test lists/verif/verif.test.candidates | tee $w/verif_test.log
+       gmm_verify -d $w/$FEAT -e $FEAT -D $w/gmm/$FEAT -E gmm -w $world lists/final/verif.users lists/final/verif.test lists/final/verif.test.candidates | tee $w/verif_test.log
        perl -ane 'print "$F[0]\t$F[1]\t";
-        if ($F[2] > 0.438652257504481) {print "1\n"}
+        if ($F[2] > 0.171370027055398) {print "1\n"}
         else {print "0\n"}' $w/verif_test.log | tee verif_test.log 
 
    
