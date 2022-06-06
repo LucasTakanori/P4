@@ -135,10 +135,23 @@ Complete el código necesario para entrenar modelos GMM.
   del modelado GMM para diferenciar las señales de uno y otro.
   
     **LP:** 
-  <p align="center">
+  |![](GMMSES120LOCSES120.png)|![](GMMSES140LOCSES120.png)|
+  |------------------------|:----:|
+  | ![](GMMSES120LOCSES140.png)|![](GMMSES140LOCSES140.png)|
+  
+  **LPCC:** 
+  |![](GMMSES120LOCSES120lpcc.png)|![](GMMSES140LOCSES120lpcc.png)|
+  |------------------------|:----:|
+  | ![](GMMSES120LOCSES140lpcc.png)|![](GMMSES140LOCSES140lpcc.png)|
+  
+  **MFCC:** 
+  |![](GMMSES120LOCSES120mfcc.png)|![](GMMSES140LOCSES120mfcc.png)|
+  |------------------------|:----:|
+  | ![](GMMSES120LOCSES140mfcc.png)|![](GMMSES140LOCSES140mfcc.png)|
+  
+  los coeficientes LP como visto previamente, se dispersan de una manera algo lineal, lo cual causa que el modelado creado con la mezcla de gaussianas tenga una forma plana.
+  en LPCC, se ve como incluso la orientación general de la GMM difiere en cada locutor, así como los contornos donde hay más concentración de muestras, con lo que podemos deducir que tendrá mayor facilidad para distinguir locutores.
 
-  <img src="GMM:SES120LOC:SES120.png" width="540" align="center">
-  </p>
 
 ### Reconocimiento del locutor.
 
